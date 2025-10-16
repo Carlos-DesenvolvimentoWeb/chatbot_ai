@@ -1,0 +1,147 @@
+:root {
+  --verde-escuro: #379683;
+  --verde-claro: #a8e6cf;
+  --cinza: #f8f9fa;
+  --cinza-claro: #f1f1f1;
+}
+
+/* Container centralizado */
+.chat-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+/* Caixa do chat */
+.chat-box {
+  width: 100%;
+  max-width: 500px;
+  height: 70vh;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Área das mensagens */
+.messages {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  scroll-behavior: smooth;
+}
+
+/* Mensagem base */
+.message {
+  padding: 0.5rem 0.75rem;
+  border-radius: 12px;
+  max-width: 80%;
+  word-wrap: break-word;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp 0.3s forwards;
+}
+
+/* Mensagem do usuário */
+.user-msg {
+  background-color: var(--verde-escuro);
+  color: white;
+  align-self: flex-end;
+  border-radius: 12px 12px 0 12px;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.user-msg:hover {
+  transform: scale(1.03);
+  background-color: #2b6b6b;
+}
+
+/* Mensagem do bot */
+.bot-msg {
+  background-color: var(--verde-claro);
+  color: black;
+  align-self: flex-start;
+  border-radius: 12px 12px 12px 0;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.bot-msg:hover {
+  transform: scale(1.03);
+  background-color: #94d9c3;
+}
+
+/* Input e botão */
+.input-area {
+  display: flex;
+  padding: 0.5rem;
+  border-top: 1px solid #ddd;
+  gap: 0.5rem;
+  background-color: var(--cinza-claro);
+}
+
+.form-input {
+  flex: 1;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-input:focus {
+  border-color: var(--verde-escuro);
+  box-shadow: 0 0 0 0.2rem rgba(55, 150, 131, 0.25);
+}
+
+.form-input::placeholder {
+  color: #888;
+  font-style: italic;
+}
+
+/* Botão enviar */
+.btn-send {
+  background-color: var(--verde-escuro);
+  color: white;
+  border: none;
+  padding: 0 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.btn-send:hover {
+  background-color: var(--verde-claro);
+  color: black;
+  transform: scale(1.05);
+}
+
+/* Animação de entrada das mensagens */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scrollbar customizada */
+.messages::-webkit-scrollbar {
+  width: 6px;
+}
+
+.messages::-webkit-scrollbar-thumb {
+  background-color: var(--verde-escuro);
+  border-radius: 3px;
+}
+
+.messages::-webkit-scrollbar-track {
+  background: var(--cinza-claro);
+}
