@@ -39,7 +39,14 @@ function ChatBox() {
               {msg.text}
             </div>
           ))}
-          {loading && <div className="message bot-msg">...</div>}
+          {loading && (
+            <div className="message bot-msg thinking">
+              <span className="dot"></span>
+              <span className="dot"></span>
+              <span className="dot"></span>
+              <span style={{ marginLeft: "8px" }}>Pensando...</span>
+            </div>
+          )}
           <div ref={messagesEndRef} />
         </div>
         <div className="input-area">
